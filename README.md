@@ -1,32 +1,11 @@
 ## Energy Web - JavaScript/TypeScript Developer recruitment task
 
-Hey there!
+In this version, I filtered the movies based on the number of matching genres and then sort them by the number of genres and id. The complexity of this function is as follows:
 
-Not so long ago we decided create a catalogue of our favorite movies (./src/db.json) as json. It is hard to find things there, so we would like to build an algorithm to make it easier.
+1. The filter function iterating over the movies has a time complexity of O(m), where m is the number of movies.
 
-## Before start
-1. Please remove `.git` folder and initialize your own repository using this repository as a starting point
-2. Please install all dependencies using `npm i`
+2. The sort function at the end has a time complexity of O(m * log(m)) in the average and worst case, as it uses the built-in sorting algorithm of JavaScript.
 
+Combining these complexities, I get a total time complexity of O(m) + O(m * log(m)). In this case, the dominant term is O(m * log(m)) as the complexity of sorting dominates the linear complexity of filtering.
 
-## TODO'S
-1. Write an algorithm that would help us find the right movie: 
-  * If we provide genres [Comedy, Fantasy, Crime] then the top hits should be movies that have all three of them, then there should be movies that have one of [Comedy, Fantasy], [Comedy, Crime], [Fantasy, Crime] and then those with Comedy only, Fantasy only and Crime only. Similarly applies when the requested array of genres is shorter.
-
-  * Of course we don't want to have duplicates.
-
-  * If we provide an empty list, then we should get a single random movie. (return type should be a array with single movie)
-
-2. The algorithm needs to as efficient as possible, so please also provide its complexity using "Big O" notation with some explanation how you've calculated it. 
-
-To make it easier we've also provided a set of tests to make sure your solution works as expected. You can find them in `./src/__tests__`. To run them just use:
-```bash
-npm t
-```
-
-### Rules
-* Please not use any outside library like `lodash` etc.
-* We require code in git repository
-* All tests needs to pass
-
-
+So, the time complexity of this getFilteredMovies function is O(m * log(m)).
